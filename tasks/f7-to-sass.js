@@ -16,6 +16,7 @@ gulp.task( "f7-to-sass", function( ){
 		// Do some magic with the regexes and replace, we could take a look in to the less grammar
 		// to catch the proper edge cases.
 		//
+		.pipe( replace( (/@{\s*(\S+)\s*}/gi),                                   "#{@$1}" ) )
 		.pipe( replace( (/@(?!font-face|import|media|keyframes|-)/gi),          "$" ) )
 		.pipe( replace( (/\.([\w\-]*)\s*\((.*)\)\s*\{/gi),                      "@mixin $1\($2\)\n{" ) )
 		.pipe( replace( (/\.([\w\-]*\(.*\)\s*;)/gi),                            "@include $1)" ) )
