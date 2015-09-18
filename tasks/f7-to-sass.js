@@ -18,13 +18,19 @@ gulp.task( "f7-to-sass", function( ){
 		//
 		.pipe( replace( (/@{\s*(\S+)\s*}/gi),                                   "#{@$1}" ) )
 		.pipe( replace( (/@(?!font-face|import|media|keyframes|-)/gi),          "$" ) )
-		.pipe( replace( (/\.([\w\-]*)\s*\((.*)\)\s*\{/gi),                      "@mixin $1\($2\)\n{" ) )
-		.pipe( replace( (/\.([\w\-]*\(.*\)\s*;)/gi),                            "@include $1)" ) )
-		.pipe( replace( (/~"(.*)"/gi),                                          '#{"$1"}' ) )
+		.pipe( replace( (/\.([\w\-]*)\s*\((.*)\)\s*\{/gi),                      "@mixin $1( $2 ) {" ) )
+		.pipe( replace( (/\.([\w\-]*\(.*\)\s*;)/gi),                            "@include $1" ) )
+		.pipe( replace( (/~"(.*)"/gi),                                          '#{ "$1" }' ) )
 		.pipe( replace( (/spin/gi),                                             "adjust-hue" ) )
+		.pipe( replace( (/(?:@import url\(')(\S+)\.less'\);/gi),                '@import "$1";' ) )
 
 		// Now rename everything to a scss file and write it out in to our src directory
-		.pipe( rename({ extname: ".scss" }) )
+		.pipe(
+			rename({
+				prefix: "_",
+				extname: ".scss"
+			})
+		)
 		.pipe( gulp.dest( config.output_for.generated_sass ) );
 
 });
