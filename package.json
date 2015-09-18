@@ -1,0 +1,37 @@
+{
+  "name": "plan-b",
+  "version": "0.0.0",
+  "description": "UI framework for aurelia based on Framework 7",
+  "main": ".",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreSteenveld/Plan-B.git"
+  },
+  "keywords": [
+    "aurelia",
+    "F7",
+    "framework-7",
+    "ios",
+    "android",
+    "material",
+    "native",
+    "phonegap",
+    "cordova"
+  ],
+  "author": "Andre Steenveld",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/AndreSteenveld/Plan-B/issues"
+  },
+  "homepage": "https://github.com/AndreSteenveld/Plan-B#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "object.assign": "^4.0.1",
+    "require-dir": "^0.3.0"
+  }
+}
