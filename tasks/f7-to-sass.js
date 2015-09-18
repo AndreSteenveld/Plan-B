@@ -20,6 +20,7 @@ gulp.task( "f7-to-sass", function( ){
 		.pipe( replace( (/@(?!font-face|import|media|keyframes|-)/gi),          "$" ) )
 		.pipe( replace( (/\.([\w\-]*)\s*\((.*)\)\s*\{/gi),                      "@mixin $1( $2 ) {" ) )
 		.pipe( replace( (/\.([\w\-]*\(.*\)\s*;)/gi),                            "@include $1" ) )
+		.pipe( replace( (/\w?e\("(.+?)"\)/gi),                                  '~"$1"' ) )
 		.pipe( replace( (/~"(.*)"/gi),                                          '#{ "$1" }' ) )
 		.pipe( replace( (/spin/gi),                                             "adjust-hue" ) )
 		.pipe( replace( (/(?:@import url\(')(\S+)\.less'\);/gi),                '@import "$1";' ) )
