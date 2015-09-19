@@ -29,8 +29,11 @@
   "homepage": "https://github.com/AndreSteenveld/Plan-B#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.1",
+    "gulp-debug": "^2.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.0.4",
     "object.assign": "^4.0.1",
     "require-dir": "^0.3.0"
   }
