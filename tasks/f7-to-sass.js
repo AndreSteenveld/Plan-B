@@ -19,11 +19,43 @@ gulp.task( "f7-to-sass", function( ){
 		.pipe( replace( (/@{\s*(\S+)\s*}/gi),                                   "#{@$1}" ) )
 		.pipe( replace( (/@(?!font-face|import|media|keyframes|-)/gi),          "$" ) )
 		.pipe( replace( (/\.([\w\-]*)\s*\((.*)\)\s*\{/gi),                      "@mixin $1( $2 ) {" ) )
-		.pipe( replace( (/\.([\w\-]*\(.*\)\s*;)/gi),                            "@include $1" ) )
-		.pipe( replace( (/\w?e\("(.+?)"\)/gi),                                  '~"$1"' ) )
+		.pipe( replace( (/\.([\w\-]*\(.*\)\s*;?)/gi),                           "@include $1" ) )
 		.pipe( replace( (/~"(.*)"/gi),                                          '#{ "$1" }' ) )
-		.pipe( replace( (/spin/gi),                                             "adjust-hue" ) )
 		.pipe( replace( (/(?:@import url\(')(\S+)\.less'\);/gi),                '@import "$1";' ) )
+		.pipe( replace(
+			(/.*(\S+(?=&))[^\{]*/gim),
+			function( ){
+
+				var args = Array.prototype.slice.call( arguments ),
+
+					match  = args[ 0 ],
+					groups = args.slice( 1, -2 ),
+					offset = args.slice( -2 )[ 0 ],
+					str    = args.slice( -1 )[ 0 ];
+
+				var replaced = ""
+						+ "@at-root "
+						+ match.split( "," )
+							.map( function( selector ){ return selector.replace( (/^\s+|\s+$/g), "" ); } )
+							.map( function( selector ){
+
+								return selector[ 0 ] === "&"
+									? selector
+									: selector.replace( "&", "#{&}" );
+
+							})
+							.join( ", " );
+
+				// console.log( ""
+				// 	+ "Rewriting nested selector :: "
+				// 	+ "\n " + match.replace( (/^\s+|\s+$/g), "" )
+				// 	+ "\n " + replaced
+				// 	+ "\n"
+				// );
+
+				return replaced;
+			}
+		))
 
 		// Now rename everything to a scss file and write it out in to our src directory
 		.pipe(
