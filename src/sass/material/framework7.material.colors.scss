@@ -23,9 +23,9 @@ Framework7 Layouts Themes
     $searchbarBorder: #333;
     $swipeoutButton: #444;
     $checkboxBorder: $blockBorder;
-    
+
     // Photo Browser
-    .page, .login-screen-content, .page&, .panel, .panel& {
+@at-root .page, .login-screen-content, .page#{&}, .panel, .panel#{&}{
         background-color: $pageBg;
         color:rgba(255,255,255,0.87);
     }
@@ -33,7 +33,7 @@ Framework7 Layouts Themes
     .content-block-title {
         color:rgba(255,255,255,0.87);
     }
-    
+
     .content-block-inner {
         @include hairline-color(top, $blockBorder);
         @include hairline-color(bottom, $blockBorder);
@@ -54,7 +54,7 @@ Framework7 Layouts Themes
         color:$lightText;
     }
     // List
-    .list-block, .list-block& {
+@at-root .list-block, .list-block#{&}{
         ul {
             @include hairline-color(top, $blockBorder);
             @include hairline-color(bottom, $blockBorder);
@@ -83,7 +83,7 @@ Framework7 Layouts Themes
     }
     .item-divider, .list-group-title {
         background: $dividerBg;
-        color:$lightText;        
+        color:$lightText;
         @include hairline-color(top, $blockBorder);
     }
     // Forms
@@ -111,7 +111,7 @@ Framework7 Layouts Themes
     .item-inner:not(.focus-state):not(.not-empty-state) .item-input-field, .item-inner:not(.focus-state):not(.not-empty-state) .input-field {
         @include hairline-color(bottom, rgba(255, 255, 255, 0.12));
     }
-    
+
     label.label-checkbox {
         i.icon-form-checkbox {
             border-color: rgba(255,255,255,0.7);
@@ -142,10 +142,10 @@ Framework7 Color Themes
     //Plain color and links
     .color-#{$colorName} {
         color: $color;
-        .list-block .item-link.list-button&, .tabbar a.active&, a& {
+@at-root .list-block .item-link.list-button#{&}, .tabbar a.active#{&}, a#{&}{
             color: $color;
         }
-        .label-switch input[type="checkbox"]:checked + .checkbox&, .label-switch& input[type="checkbox"]:checked + .checkbox{
+@at-root .label-switch input[type="checkbox"]:checked + .checkbox#{&}, .label-switch#{&} input[type="checkbox"]:checked + .checkbox{
             background-color: $color;
         }
     }
@@ -155,7 +155,7 @@ Framework7 Color Themes
             &:not(.button-fill) {
                 color:$color;
             }
-            
+
         }
         .theme-#{$colorName} .navbar &, .theme-#{$colorName}.navbar &, .theme-#{$colorName} .toolbar &, .theme-#{$colorName}.toolbar &, .theme-#{$colorName} .subnavbar &, .theme-#{$colorName}.subnavbar & {
             &:not(.button-fill) {
@@ -179,11 +179,11 @@ Framework7 Color Themes
                 background: $pressColor !important;
             }
         }
-        
+
     }
     //Icons
     .color-#{$colorName} {
-        i.icon, i.icon& {
+@at-root i.icon, i.icon#{&}{
             color:$color;
         }
     }
@@ -212,11 +212,11 @@ Framework7 Color Themes
             color: $color;
         }
         // Toolbars
-        .navbar, .navbar& , .toolbar, .toolbar&, .subnavbar, .subnavbar& {
+@at-root .navbar, .navbar#{&}, .toolbar, .toolbar#{&}, .subnavbar, .subnavbar#{&}{
             background-color: $color;
         }
         // Forms
-        .range-slider, .range-slider& {
+@at-root .range-slider, .range-slider#{&}{
             input[type="range"]::-webkit-slider-thumb:before {
                 background-color: $color;
             }
@@ -224,7 +224,7 @@ Framework7 Color Themes
                 background-color: $color;
             }
         }
-        .label-switch, .label-switch& {
+@at-root .label-switch, .label-switch#{&}{
             input[type="checkbox"] {
                 &:checked {
                     &+ .checkbox {
@@ -236,7 +236,7 @@ Framework7 Color Themes
                 }
             }
         }
-        label.label-checkbox, label.label-checkbox& {
+@at-root label.label-checkbox, label.label-checkbox#{&}{
             cursor: pointer;
             i.icon-form-checkbox {
                 &:after {
@@ -252,9 +252,9 @@ Framework7 Color Themes
                 }
             }
         }
-        label.label-radio, label.label-radio& {
+@at-root label.label-radio, label.label-radio#{&}{
             i.icon-form-radio:after {
-                background-color: $color;       
+                background-color: $color;
             }
             input[type="checkbox"], input[type="radio"] {
                 &:checked + .item-media, &:checked ~ .item-after, &:checked ~ .item-inner{
@@ -317,7 +317,7 @@ Framework7 Color Themes
     // Border rule
     .border-#{$colorName} {
         border-color: $color;
-        .list-block &.item-inner, .list-block ul&, & {
+@at-root .list-block #{&}.item-inner, .list-block ul#{&}, &{
             &:after, &:before {
                 background-color: $color;
             }

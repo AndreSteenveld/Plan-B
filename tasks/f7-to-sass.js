@@ -20,8 +20,10 @@ gulp.task( "f7-to-sass", function( ){
 		.pipe( replace( (/@(?!font-face|import|media|keyframes|-)/gi),          "$" ) )
 		.pipe( replace( (/\.([\w\-]*)\s*\((.*)\)\s*\{/gi),                      "@mixin $1( $2 ) {" ) )
 		.pipe( replace( (/\.([\w\-]*\(.*\)\s*;?)/gi),                           "@include $1" ) )
+		.pipe( replace( (/([;{}]\s*)(\.[a-z0-9_-]+)(;)/gi),                     "$1@extend $2$3" ) )
 		.pipe( replace( (/~"(.*)"/gi),                                          '#{ "$1" }' ) )
 		.pipe( replace( (/(?:@import url\(')(\S+)\.less'\);/gi),                '@import "$1";' ) )
+		.pipe( replace( (/\)\s*\!important\s*;/gi),                             ', !important );' ) )
 		.pipe( replace(
 			(/.*(\S+(?=&))[^\{]*/gim),
 			function( ){

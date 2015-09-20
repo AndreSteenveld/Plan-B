@@ -1,6 +1,7 @@
 //@import "../f7/material/_mixins";
 
 @function e( $str ){ @return #{ $str }; }
+@function pi(){ @return 3.141592; }
 
 @mixin transition( $d ) {
     -webkit-transition-duration: $d;
@@ -10,9 +11,9 @@
     -webkit-transition-delay: $d;
     transition-delay: $d;
 }
-@mixin transform( $t ) {
-    -webkit-transform: $t;
-    transform: $t;
+@mixin transform( $t, $important : null ) {
+    -webkit-transform: $t #{ $important };
+    transform: $t #{ $important };
 }
 @mixin transform-origin( $to ) {
     -webkit-transform-origin: $to;
