@@ -1,3 +1,6 @@
+
+@function e( $str ){ @return #{ $str }; }
+
 //@import "../f7/ios/_mixins";
 @mixin transition( $d ) {
     -webkit-transition-duration: $d;
