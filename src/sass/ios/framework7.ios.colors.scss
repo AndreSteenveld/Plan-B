@@ -7,10 +7,10 @@ Framework7 Color Themes
     //Plain color and links
     .color-#{$colorName} {
         color: $color;
-        .list-block .item-link.list-button&, .tabbar a.active&, a& {
+@at-root .list-block .item-link.list-button#{&}, .tabbar a.active#{&}, a#{&}{
             color: $color;
         }
-        .label-switch input[type="checkbox"]:checked + .checkbox&, .label-switch& input[type="checkbox"]:checked + .checkbox{
+@at-root .label-switch input[type="checkbox"]:checked + .checkbox#{&}, .label-switch#{&} input[type="checkbox"]:checked + .checkbox{
             background-color: $color;
         }
     }
@@ -31,7 +31,7 @@ Framework7 Color Themes
     }
     //Icons
     .color-#{$colorName}, .theme-#{$colorName} {
-        i.icon, i.icon& {
+@at-root i.icon, i.icon#{&}{
             color:$color;
         }
     }
@@ -56,7 +56,7 @@ Framework7 Color Themes
         a, .item-link.list-button {
             color: $color;
         }
-        .tabbar, .tabbar& {
+@at-root .tabbar, .tabbar#{&}{
             a, a i {
                 color:inherit;
             }
@@ -64,7 +64,7 @@ Framework7 Color Themes
                 color:$color;
             }
         }
-        .range-slider, .range-slider& {
+@at-root .range-slider, .range-slider#{&}{
             input[type="range"]::-webkit-slider-thumb:before {
                 background-color: $color;
             }
@@ -101,7 +101,7 @@ Framework7 Color Themes
     // Border rule
     .border-#{$colorName} {
         border-color: $color;
-        .list-block &.item-inner, .list-block ul&, & {
+@at-root .list-block #{&}.item-inner, .list-block ul#{&}, &{
             &:after, &:before {
                 background-color: $color;
             }
@@ -142,12 +142,12 @@ Framework7 Layouts Themes
     $searchbarBorder: #333;
     $swipeoutButton: #444;
     $checkboxBorder: $blockBorder;
-    .navbar, .navbar&, .subnavbar, .subnavbar& {
+@at-root .navbar, .navbar#{&}, .subnavbar, .subnavbar#{&}{
         @include hairline-color(bottom, $barsBorder);
         background-color: $barsBg;
         color:$barsText;
     }
-    .toolbar, .toolbar& {
+@at-root .toolbar, .toolbar#{&}{
         @include hairline-color(top, $barsBorder);
         background-color: $barsBg;
         color:$barsText;
@@ -194,7 +194,7 @@ Framework7 Layouts Themes
         }
     }
     // Photo Browser
-    .photo-browser, .photo-browser&, .view[data-page="photo-browser-slides"], .view[data-page="photo-browser-slides"]& {
+@at-root .photo-browser, .photo-browser#{&}, .view[data-page="photo-browser-slides"], .view[data-page="photo-browser-slides"]#{&}{
         .navbar, .toolbar {
             background: rgba(red($barsBg), green($barsBg), blue($barsBg), 0.95);
         }
@@ -202,14 +202,14 @@ Framework7 Layouts Themes
     .tabbar a:not(.active) {
         color:$tabBarText;
     }
-    .page, .login-screen-content, .page&, .panel, .panel& {
+@at-root .page, .login-screen-content, .page#{&}, .panel, .panel#{&}{
         background-color: $pageBg;
         color:$text;
     }
     .content-block-title {
         color:$strongText;
     }
-    .content-block, .content-block& {
+@at-root .content-block, .content-block#{&}{
         color:$lightText;
     }
     .content-block-inner {
@@ -218,7 +218,7 @@ Framework7 Layouts Themes
         @include hairline-color(top, $blockBorder);
         @include hairline-color(bottom, $blockBorder);
     }
-    .list-block, .list-block& {
+@at-root .list-block, .list-block#{&}{
         ul {
             background: $blockBg;
             @include hairline-color(top, $blockBorder);
@@ -241,14 +241,14 @@ Framework7 Layouts Themes
         @include hairline-color(top, $blockBorder);
         color:$lightText;
     }
-    .popover, .popover& {
+@at-root .popover, .popover#{&}{
         background: rgba(0,0,0,0.8);
         .popover-angle:after {
             background: rgba(0,0,0,0.8);
         }
         .list-block ul {
             background: none;
-        }    
+        }
 
     }
     .actions-popover .list-block ul {
@@ -283,10 +283,10 @@ Framework7 Layouts Themes
     }
     .item-divider, .list-group-title {
         background: $dividerBg;
-        color:$lightText;        
+        color:$lightText;
         @include hairline-color(top, $blockBorder);
     }
-    
+
     // Searchbar
     .searchbar {
         background: $searchbarBg;
@@ -294,7 +294,7 @@ Framework7 Layouts Themes
     }
 
     // Forms
-    .list-block, .list-block& {
+@at-root .list-block, .list-block#{&}{
         input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="url"], input[type="date"], input[type="datetime-local"], input[type="number"], select, textarea {
             color:$strongText;
         }
@@ -331,12 +331,12 @@ Framework7 Layouts Themes
     $searchbarBorder: #b4b4b4;
     $swipeoutButton: #c7c7cc;
     $checkboxBorder: #e5e5e5;
-    .navbar, .navbar&, .subnavbar, .subnavbar& {
+@at-root .navbar, .navbar#{&}, .subnavbar, .subnavbar#{&}{
         @include hairline-color(bottom, $barsBorder);
         background-color: $barsBg;
         color:$barsText;
     }
-    .toolbar, .toolbar& {
+@at-root .toolbar, .toolbar#{&}{
         @include hairline-color(top, $barsBorder);
         background-color: $barsBg;
         color:$barsText;
@@ -360,7 +360,7 @@ Framework7 Layouts Themes
         }
     }
     // Photo Browser
-    .photo-browser, .photo-browser&, .view[data-page="photo-browser-slides"], .view[data-page="photo-browser-slides"]& {
+@at-root .photo-browser, .photo-browser#{&}, .view[data-page="photo-browser-slides"], .view[data-page="photo-browser-slides"]#{&}{
         .navbar, .toolbar {
             background: rgba(red($barsBg), green($barsBg), blue($barsBg), 0.95);
         }
@@ -368,14 +368,14 @@ Framework7 Layouts Themes
     .tabbar a:not(.active) {
         color:$tabBarText;
     }
-    .page, .login-screen-content, .page&, .panel, .panel& {
+@at-root .page, .login-screen-content, .page#{&}, .panel, .panel#{&}{
         background-color: $pageBg;
         color: $text;
     }
     .content-block-title {
         color:$strongText;
     }
-    .content-block, .content-block& {
+@at-root .content-block, .content-block#{&}{
         color:$lightText;
     }
     .content-block-inner {
@@ -384,7 +384,7 @@ Framework7 Layouts Themes
         @include hairline-color(bottom, $blockBorder);
         @include hairline-color(top, $blockBorder);
     }
-    .list-block, .list-block& {
+@at-root .list-block, .list-block#{&}{
         ul {
             background: $blockBg;
             @include hairline-color(bottom, $blockBorder);
@@ -429,7 +429,7 @@ Framework7 Layouts Themes
         color:$lightText;
         @include hairline-color(top, $blockBorder);
     }
-    
+
     // Searchbar
     .searchbar {
         background: $searchbarBg;
@@ -437,7 +437,7 @@ Framework7 Layouts Themes
     }
 
     // Forms
-    .list-block, .list-block& {
+@at-root .list-block, .list-block#{&}{
         input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="url"], input[type="date"], input[type="datetime-local"], input[type="number"], select, textarea {
             color:$strongText;
         }
@@ -452,4 +452,3 @@ Framework7 Layouts Themes
         background: $blockBg;
     }
 }
-
